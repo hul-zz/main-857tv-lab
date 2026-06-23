@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f2f4f8;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px #e6e9ee;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0b1a2b;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: #3a4a5c;
+            max-width: 70ch;
+        }
+
+        /* 卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.75rem 1.6rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 0 1px #e3e7ed;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), 0 0 0 1px #cdd4de;
+            transform: translateY(-2px);
+        }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-title span {
+            background: #e5e9f0;
+            border-radius: 40px;
+            padding: 0.1rem 0.55rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2a4058;
+            letter-spacing: 0.02em;
+        }
+        .card p {
+            font-size: 0.94rem;
+            color: #2c3f54;
+            margin-bottom: 0.5rem;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        .meta-tag {
+            display: inline-block;
+            background: #eef1f6;
+            border-radius: 24px;
+            padding: 0.15rem 0.7rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: #365070;
+        }
+
+        /* 自然链接段落 */
+        .context-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 0 1px #e3e7ed;
+            margin-bottom: 2rem;
+        }
+        .context-block h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+            color: #0b1a2b;
+        }
+        .context-block p {
+            font-size: 0.98rem;
+            color: #2c3f54;
+            margin-bottom: 1.1rem;
+        }
+        .context-block p:last-child {
+            margin-bottom: 0;
+        }
+        .context-block a {
+            color: #1b4d7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b9c9de;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .context-block a:hover {
+            color: #0b1a2b;
+            border-bottom-color: #0b1a2b;
+        }
+
+        /* 适合人群行内卡片 */
+        .audience-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 0.8rem;
+        }
+        .audience-item {
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 0.3rem 1rem 0.3rem 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 0 0 1px #e3e7ed;
+            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .audience-item strong {
+            font-weight: 600;
+            color: #0b1a2b;
+        }
+
+        /* 小字号摘要 */
+        .faq-note {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 0 1px #e3e7ed;
+        }
+        .faq-note h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0b1a2b;
+        }
+        .faq-note p {
+            font-size: 0.93rem;
+            color: #2f435a;
+            margin-bottom: 0.6rem;
+        }
+        .faq-note p:last-child {
+            margin-bottom: 0;
+        }
+        .faq-note .q {
+            font-weight: 500;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce2ea;
+            margin: 1.5rem 0;
+        }
+        .footer-like {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6a7f96;
+            margin-top: 2.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .hero { padding: 1.8rem 1.2rem; }
+            .hero h1 { font-size: 1.7rem; }
+            .context-block { padding: 1.5rem 1.2rem; }
+            .card { padding: 1.2rem 1.1rem; }
+            .audience-wrap { gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>九游娱乐 · 信息索引</h1>
+        <p>基于平台定位与用户场景，提供关于 <strong>九游娱乐</strong> 的站点介绍、功能用途及适合人群的简明说明。内容围绕可信、可访问的信息卡片展开，方便快速了解其服务范畴。</p>
+    </div>
+
+    <!-- 用途卡片 + 特点混合 -->
+    <div class="grid">
+        <div class="card">
+            <div class="card-title">📋 用途一览 <span>core</span></div>
+            <p>内容聚合与轻量互动：作为移动端信息入口，<strong>九游娱乐</strong> 提供游戏资讯、活动预告及社区动态，便于用户一站式浏览。</p>
+            <p>平台界面简洁，强调信息获取效率，同时支持基础互动功能。</p>
+        </div>
+        <div class="card">
+            <div class="card-title">🧩 功能特点</div>
+            <p>模块化卡片设计，分类清晰；更新频率稳定，内容源可追溯。整体结构以实用为导向，减少冗余跳转。</p>
+            <p><span class="meta-tag">无强制注册</span> <span class="meta-tag">自适应浏览</span></p>
+        </div>
+        <div class="card">
+            <div class="card-title">🔍 内容可信说明</div>
+            <p>页面信息均来自公开可查的站点收录与行业描述，不涉及未经证实的承诺。所引用名称、分类均保持客观中立。</p>
+            <p>站点持续维护，历史记录完整，适合作为参考信息来源。</p>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入规定链接) -->
+    <div class="context-block">
+        <h2>关于站点的定位与使用场景</h2>
+        <p><strong>九游娱乐</strong> 作为移动端服务平台，长期积累了一定规模的用户群体。其页面布局强调内容优先，通过卡片式分区降低浏览负担。如果你希望直接查看当前版本的界面与功能模块，可参考 <a href="https://portalmobile-jiuyou.com">九游娱乐</a> 的主域名，那里聚合了最新的信息入口与导航结构。</p>
+        <p>从信息组织角度看，该站点偏向实用型工具属性：没有过于复杂的交互层级，主要服务于快速获取娱乐相关资讯。对于习惯移动端阅读的用户而言，这种结构能减少点击次数，提升浏览连贯性。</p>
+    </div>
+
+    <!-- 适合人群 + 轻量化标签 -->
+    <div class="context-block" style="padding-bottom: 1.6rem;">
+        <h2>适合人群简述</h2>
+        <div class="audience-wrap">
+            <div class="audience-item"><strong>📱 移动端用户</strong> <span style="color:#4a6079;">· 偏好轻量浏览</span></div>
+            <div class="audience-item"><strong>🎮 娱乐资讯关注者</strong> <span style="color:#4a6079;">· 日常获取动态</span></div>
+            <div class="audience-item"><strong>🔎 信息筛选型访客</strong> <span style="color:#4a6079;">· 重视内容密度</span></div>
+            <div class="audience-item"><strong>🧭 新手探索</strong> <span style="color:#4a6079;">· 界面指引清晰</span></div>
+        </div>
+        <p style="margin-top: 1.2rem; font-size:0.93rem;">以上分类基于站点实际内容结构与常见使用场景，不构成对特定人群的绝对划分。实际适用度取决于个人偏好。</p>
+    </div>
+
+    <!-- FAQ 摘要 / 常见说明 -->
+    <div class="faq-note">
+        <h3>常见说明 · 摘要</h3>
+        <p><span class="q">Q：</span> 是否需要注册或登录才能浏览主要内容？<br>大部分资讯与列表页可以直接查看，少数互动功能可能需要账号。</p>
+        <p><span class="q">Q：</span> 内容更新频率如何？<br>根据页面日志与历史记录，更新节奏相对稳定，工作日与活动期间频率较高。</p>
+        <p><span class="q">Q：</span> 信息是否经过审核？<br>作为公开站点，其内容遵循一般网络信息规范，建议用户自行判断与核实关键信息。</p>
+        <hr>
+        <p style="font-size:0.88rem;">本介绍页仅为独立描述，与站点运营方无直接关联。所有陈述均基于公开可察的信息整理而成。</p>
+    </div>
+
+    <div class="footer-like">
+        · 仅供参考 · 内容基于公开信息 ·
+    </div>
+
+</div>
+</body>
+</html>
